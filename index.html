@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>오늘 저녁 뭐 먹지</title>
+    <title>오늘 저녁 뭐 먹지 - 메뉴 고민 해결사 | 음식 추천 서비스</title>
+    <meta name="description" content="매일 저녁 메뉴 고민되시나요? 한식, 중식, 일식, 양식, 퓨전 등 다양한 카테고리에서 40가지 이상의 메뉴를 추천해드립니다. 간편하게 오늘의 저녁 메뉴를 결정하세요.">
+    <meta name="keywords" content="저녁 메뉴 추천, 음식 추천, 메뉴 고민, 오늘 뭐 먹지, 한식, 중식, 일식, 양식, 저녁 식사, 메뉴 결정">
+    <meta name="author" content="오늘 저녁 뭐 먹지">
+    <meta property="og:title" content="오늘 저녁 뭐 먹지 - 메뉴 고민 해결사">
+    <meta property="og:description" content="매일 저녁 메뉴 고민되시나요? 다양한 음식 카테고리에서 메뉴를 추천해드립니다.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2897488249130303"
      crossorigin="anonymous"></script>
 </head>
 <body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link active">홈</a>
+            <a href="about.html" class="nav-link">소개</a>
+            <a href="privacy.html" class="nav-link">개인정보처리방침</a>
+        </div>
+    </nav>
+
     <div class="container">
         <header>
             <h1>🍽️ 오늘 저녁 뭐 먹지?</h1>
@@ -17,13 +31,122 @@
                 <input type="checkbox" id="theme-switch">
             </div>
         </header>
+
+        <section class="intro-section">
+            <h2>매일 저녁 메뉴 고민, 이제 그만!</h2>
+            <p>바쁜 일상 속에서 매일 저녁 메뉴를 고민하는 시간이 아깝지 않으신가요?
+            저희 서비스는 한식, 중식, 일식, 양식, 퓨전 등 5개 카테고리에서
+            40가지 이상의 다양한 메뉴를 추천해드립니다.</p>
+            <p>간단한 클릭 한 번으로 오늘의 저녁 메뉴를 결정하고,
+            더 많은 시간을 소중한 사람들과 함께 보내세요.</p>
+        </section>
+
         <main>
             <div class="controls">
                 <button id="recommend-btn">메뉴 추천받기</button>
             </div>
             <div id="recommendation-display"></div>
         </main>
+
+        <section class="features-section">
+            <h2>이런 분들께 추천합니다</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤔</div>
+                    <h3>메뉴 결정 장애</h3>
+                    <p>매일 뭐 먹을지 고민하는 시간이 너무 오래 걸리나요?</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>가족 식사</h3>
+                    <p>가족 모두가 만족할 메뉴를 찾기 어려우신가요?</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎲</div>
+                    <h3>새로운 도전</h3>
+                    <p>평소에 먹지 않던 새로운 음식을 시도해보고 싶으신가요?</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>시간 절약</h3>
+                    <p>메뉴 고민하는 시간을 줄이고 싶으신가요?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <h2>다양한 카테고리</h2>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <h3>🇰🇷 한식</h3>
+                    <p>김치찌개, 불고기, 비빔밥, 떡볶이, 삼겹살, 닭강정, 짜장면, 순두부찌개</p>
+                </div>
+                <div class="category-item">
+                    <h3>🇯🇵 일식</h3>
+                    <p>초밥, 라면, 텐푸라, 돈까스, 우동, 테리야키 치킨, 규동, 오코노미야키</p>
+                </div>
+                <div class="category-item">
+                    <h3>🇨🇳 중식</h3>
+                    <p>마파두부, 궁바오 치킨, 볶음밥, 훠궈, 북경오리, 볶음면, 딤섬, 탕수육</p>
+                </div>
+                <div class="category-item">
+                    <h3>🌍 양식</h3>
+                    <p>스테이크, 파스타, 버거, 피자, 치킨 브레스트, 연어, 타코, 바비큐 갈비</p>
+                </div>
+                <div class="category-item">
+                    <h3>🌏 퓨전</h3>
+                    <p>한우 바비큐, 포케 볼, 쌀국수, 태국 카레, 부리또, 버터 치킨, 케밥, 팔라펠</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-to-section">
+            <h2>사용 방법</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <p>"메뉴 추천받기" 버튼을 클릭하세요</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <p>랜덤으로 선택된 메뉴를 확인하세요</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <p>마음에 들지 않으면 다시 클릭하세요</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <p>결정된 메뉴로 맛있는 저녁을 즐기세요!</p>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>오늘 저녁 뭐 먹지</h3>
+                <p>매일 저녁 메뉴 고민을 해결해드리는 서비스입니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="privacy.html">개인정보처리방침</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>문의</h3>
+                <p>이메일: contact@dinnerhelper.com</p>
+                <p>더 나은 서비스를 위해 노력하겠습니다.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 오늘 저녁 뭐 먹지. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>
