@@ -49,8 +49,8 @@ function generateUniqueNumbers(count, min, max) {
 }
 
 function getNumberColor(number) {
-    const hue = (number * 137.508) % 360;
-    return `hsl(${hue}, 70%, 50%)`;
+    const hue = (number * 137.508) % 360; // Golden angle approximation
+    return `hsl(${hue}, 85%, 60%)`; // Increased saturation and lightness
 }
 
 // Copy to clipboard
