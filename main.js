@@ -1,79 +1,131 @@
 const themeSwitch = document.getElementById('theme-switch');
-const generateBtn = document.getElementById('generate-btn');
-const copyBtn = document.getElementById('copy-btn');
-const lottoGamesContainer = document.getElementById('lotto-games');
+const recommendBtn = document.getElementById('recommend-btn');
+const recommendationDisplay = document.getElementById('recommendation-display');
 
 // Theme switcher
 themeSwitch.addEventListener('change', () => {
     document.body.classList.toggle('dark-mode', themeSwitch.checked);
 });
 
-// Generate lottery numbers
-generateBtn.addEventListener('click', generateLottoGames);
+// Food database
+const foodDatabase = {
+    'Korean': [
+        { name: '김치찌개', emoji: '🍲' },
+        { name: '불고기', emoji: '🥩' },
+        { name: '비빔밥', emoji: '🍚' },
+        { name: '떡볶이', emoji: '🌶️' },
+        { name: '삼겹살', emoji: '🥓' },
+        { name: '닭강정', emoji: '🍗' },
+        { name: '짜장면', emoji: '🍜' },
+        { name: '순두부찌개', emoji: '🍲' }
+    ],
+    'Japanese': [
+        { name: '초밥', emoji: '🍣' },
+        { name: '라면', emoji: '🍜' },
+        { name: '텐푸라', emoji: '🍤' },
+        { name: '돈까스', emoji: '🍛' },
+        { name: '우동', emoji: '🍜' },
+        { name: '테리야키 치킨', emoji: '🍗' },
+        { name: '규동', emoji: '🍱' },
+        { name: '오코노미야키', emoji: '🥞' }
+    ],
+    'Chinese': [
+        { name: '마파두부', emoji: '🌶️' },
+        { name: '궁바오 치킨', emoji: '🍗' },
+        { name: '볶음밥', emoji: '🍚' },
+        { name: '훠궈', emoji: '🍲' },
+        { name: '북경오리', emoji: '🦆' },
+        { name: '볶음면', emoji: '🍜' },
+        { name: '딤섬', emoji: '🥟' },
+        { name: '탕수육', emoji: '🍖' }
+    ],
+    'Western': [
+        { name: '스테이크', emoji: '🥩' },
+        { name: '파스타', emoji: '🍝' },
+        { name: '버거', emoji: '🍔' },
+        { name: '피자', emoji: '🍕' },
+        { name: '치킨 브레스트', emoji: '🍗' },
+        { name: '연어', emoji: '🐟' },
+        { name: '타코', emoji: '🌮' },
+        { name: '바비큐 갈비', emoji: '🍖' }
+    ],
+    'Fusion': [
+        { name: '한우 바비큐', emoji: '🥩' },
+        { name: '포케 볼', emoji: '🥗' },
+        { name: '쌀국수', emoji: '🍜' },
+        { name: '태국 카레', emoji: '🍛' },
+        { name: '부리또', emoji: '🌯' },
+        { name: '버터 치킨', emoji: '🍛' },
+        { name: '케밥', emoji: '🥙' },
+        { name: '팔라펠', emoji: '🧆' }
+    ]
+};
 
-function generateLottoGames() {
-    lottoGamesContainer.innerHTML = '';
-    for (let i = 1; i <= 5; i++) {
-        const gameDiv = document.createElement('div');
-        gameDiv.className = 'lotto-game';
+// Category display names in Korean
+const categoryNames = {
+    'Korean': '한식',
+    'Japanese': '일식',
+    'Chinese': '중식',
+    'Western': '양식',
+    'Fusion': '퓨전'
+};
 
-        const gameLabel = document.createElement('span');
-        gameLabel.className = 'game-label';
-        gameLabel.textContent = `Game ${i}`;
-        gameDiv.appendChild(gameLabel);
+// Get random recommendation
+function getRandomRecommendation() {
+    const categories = Object.keys(foodDatabase);
+    const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+    const foods = foodDatabase[randomCategory];
+    const randomFood = foods[Math.floor(Math.random() * foods.length)];
 
-        const numbersDiv = document.createElement('div');
-        numbersDiv.className = 'lotto-numbers';
-
-        const numbers = generateUniqueNumbers(6, 1, 45);
-        numbers.forEach(number => {
-            const numberDiv = document.createElement('div');
-            numberDiv.className = 'lotto-number';
-            numberDiv.textContent = number;
-            numberDiv.style.backgroundColor = getNumberColor(number);
-            numbersDiv.appendChild(numberDiv);
-        });
-
-        gameDiv.appendChild(numbersDiv);
-        lottoGamesContainer.appendChild(gameDiv);
-    }
+    return {
+        food: randomFood,
+        category: randomCategory
+    };
 }
 
-function generateUniqueNumbers(count, min, max) {
-    const numbers = new Set();
-    while (numbers.size < count) {
-        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-        numbers.add(randomNumber);
-    }
-    return Array.from(numbers).sort((a, b) => a - b);
+// Get category color
+function getCategoryColor(category) {
+    const colors = {
+        'Korean': '#E74C3C',
+        'Japanese': '#E91E63',
+        'Chinese': '#F39C12',
+        'Western': '#8B4513',
+        'Fusion': '#9B59B6'
+    };
+    return colors[category] || '#333';
 }
 
-function getNumberColor(number) {
-    const hue = (number * 137.508) % 360; // Golden angle approximation
-    return `hsl(${hue}, 90%, 65%)`; // Increased saturation and lightness
+// Display recommendation
+function displayRecommendation() {
+    const { food, category } = getRandomRecommendation();
+
+    recommendationDisplay.innerHTML = '';
+
+    const card = document.createElement('div');
+    card.className = 'recommendation-card';
+
+    const emoji = document.createElement('div');
+    emoji.className = 'food-emoji';
+    emoji.textContent = food.emoji;
+
+    const name = document.createElement('div');
+    name.className = 'food-name';
+    name.textContent = food.name;
+
+    const badge = document.createElement('div');
+    badge.className = 'category-badge';
+    badge.textContent = categoryNames[category];
+    badge.style.backgroundColor = getCategoryColor(category);
+
+    card.appendChild(emoji);
+    card.appendChild(name);
+    card.appendChild(badge);
+
+    recommendationDisplay.appendChild(card);
 }
 
-// Copy to clipboard
-copyBtn.addEventListener('click', () => {
-    const games = lottoGamesContainer.querySelectorAll('.lotto-game');
-    if (games.length === 0) {
-        alert('Please generate numbers first!');
-        return;
-    }
+// Event listener
+recommendBtn.addEventListener('click', displayRecommendation);
 
-    let textToCopy = '';
-    games.forEach((game, index) => {
-        const numbers = Array.from(game.querySelectorAll('.lotto-number')).map(n => n.textContent).join(', ');
-        textToCopy += `Game ${index + 1}: ${numbers}\n`;
-    });
-
-    navigator.clipboard.writeText(textToCopy.trim()).then(() => {
-        alert('Lottery numbers copied to clipboard!');
-    }).catch(err => {
-        console.error('Failed to copy numbers: ', err);
-        alert('Failed to copy numbers. Please try again.');
-    });
-});
-
-// Generate numbers on page load
-generateLottoGames();
+// Generate recommendation on page load
+displayRecommendation();
