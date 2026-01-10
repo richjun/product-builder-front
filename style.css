@@ -1,240 +1,205 @@
-
 :root {
-    --bg-color-light: #f0f2f5;
-    --text-color-light: #1c1e21;
-    --container-bg-light: #ffffff;
-    --button-bg-light: #4c8dff;
-    --button-text-light: #ffffff;
-    --header-bg-light: #ffffff;
-    --header-text-light: #4c8dff;
+  --bg-color-light: #e0e5ec;
+  --text-color-light: #333;
+  --container-bg-light: #f7f9fc;
+  --button-bg-light: #4a90e2;
+  --button-text-light: #fff;
+  --header-text-light: #2c3e50;
 
-    --bg-color-dark: #18191a;
-    --text-color-dark: #e4e6eb;
-    --container-bg-dark: #242526;
-    --button-bg-dark: #589bff;
-    --button-text-dark: #ffffff;
-    --header-bg-dark: #242526;
-    --header-text-dark: #589bff;
+  --bg-color-dark: #1a1a1a;
+  --text-color-dark: #f0f0f0;
+  --container-bg-dark: #2c2c2c;
+  --button-bg-dark: #5dade2;
+  --button-text-dark: #fff;
+  --header-text-dark: #ecf0f1;
 
-    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-secondary: 'Georgia', serif;
+  --font-primary: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-secondary: 'Playfair Display', serif;
 }
 
 body {
-    font-family: var(--font-primary);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.04"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  font-family: var(--font-primary);
+  background-attachment: fixed;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body.dark-mode {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://www.transparenttextures.com/patterns/noisy-net.png');
 }
 
 body:not(.dark-mode) {
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('https://www.transparenttextures.com/patterns/light-sketch.png');
 }
 
 .container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 3rem;
+  border-radius: 20px;
+  transition: background-color 0.4s, box-shadow 0.4s;
 }
 
 body.dark-mode .container {
-    background-color: var(--container-bg-dark);
-    box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  background: rgba(44, 44, 44, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
 }
 
 body:not(.dark-mode) .container {
-    background-color: var(--container-bg-light);
+  background: rgba(247, 249, 252, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid;
-    margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid;
+  margin-bottom: 3rem;
 }
 
-body.dark-mode header {
-    border-bottom-color: #393a3b;
-}
-
-body:not(.dark-mode) header {
-    border-bottom-color: #ddd;
-}
+body.dark-mode header { border-bottom-color: rgba(255,255,255,0.1); }
+body:not(.dark-mode) header { border-bottom-color: rgba(0,0,0,0.1); }
 
 header h1 {
-    margin: 0;
-    font-size: 2.8rem;
-    font-family: var(--font-secondary);
-    font-weight: 700;
+  margin: 0;
+  font-size: 3rem;
+  font-family: var(--font-secondary);
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
-body.dark-mode header h1 {
-    color: var(--header-text-dark);
-}
+body.dark-mode header h1 { color: var(--header-text-dark); }
+body:not(.dark-mode) header h1 { color: var(--header-text-light); }
 
-body:not(.dark-mode) header h1 {
-    color: var(--header-text-light);
-}
-
-.theme-switcher {
-    display: flex;
-    align-items: center;
-}
-
-.theme-switcher label {
-    margin-right: 0.8rem;
-    font-size: 1rem;
-}
+.theme-switcher { display: flex; align-items: center; }
+.theme-switcher label { margin-right: 1rem; font-size: 1rem; }
 
 .controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 button {
-    padding: 0.9rem 1.8rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-transform: uppercase;
 }
 
 button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 body.dark-mode button {
-    background: linear-gradient(145deg, var(--button-bg-dark), #4a80d4);
-    color: var(--button-text-dark);
+  background: linear-gradient(145deg, #6a737d, #3c4043);
+  color: var(--button-text-dark);
 }
 
 body:not(.dark-mode) button {
-    background: linear-gradient(145deg, var(--button-bg-light), #3a7bd5);
-    color: var(--button-text-light);
+  background: linear-gradient(145deg, #5dade2, #4a90e2);
+  color: var(--button-text-light);
 }
 
+#generate-btn:hover { filter: brightness(1.2); }
+#copy-btn:hover { filter: brightness(1.2); }
 
-.lotto-games {
-    display: grid;
-    gap: 1.5rem;
-}
-
+.lotto-games { display: grid; gap: 2rem; }
 .lotto-game {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    border-radius: 12px;
-    transition: background-color 0.3s;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 15px;
+  transition: background-color 0.3s;
 }
 
-@media (min-width: 600px) {
-    .lotto-game {
-        flex-direction: row;
-        align-items: center;
-    }
-}
-
-
-body.dark-mode .lotto-game {
-    background-color: rgba(255,255,255,0.05);
-}
-
-body:not(.dark-mode) .lotto-game {
-    background-color: rgba(0,0,0,0.03);
-}
+body.dark-mode .lotto-game { background-color: rgba(255,255,255,0.05); }
+body:not(.dark-mode) .lotto-game { background-color: rgba(0,0,0,0.03); }
 
 .game-label {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    flex-shrink: 0;
-}
-
-@media (min-width: 600px) {
-    .game-label {
-        margin-bottom: 0;
-        margin-right: 1.5rem;
-    }
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .lotto-numbers {
-    display: flex;
-    flex-wrap: wrap; /* Changed from nowrap to wrap */
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
 }
 
 .lotto-number {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.4rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease-in-out;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.lotto-number::before {
+  content: '';
+  position: absolute;
+  top: 5%; left: 10%;
+  width: 80%; height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0) 70%);
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
 .lotto-number:hover {
-    transform: scale(1.1);
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.lotto-number:hover::before { opacity: 1; }
+
+@media (max-width: 768px) {
+  .container { padding: 2rem; margin: 1.5rem auto; }
+  header h1 { font-size: 2.5rem; }
+  .lotto-game { grid-template-columns: 80px 1fr; }
+  .lotto-number { width: 45px; height: 45px; font-size: 1.2rem; }
 }
 
-@media (max-width: 599px) {
-    .lotto-number {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }
-
-    .lotto-numbers {
-        gap: 0.5rem;
-    }
-
-    .game-label {
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-    }
-
-    .lotto-game {
-        padding: 0.8rem;
-    }
-
-    .container {
-        padding: 1.5rem;
-        margin: 1rem auto;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    button {
-        padding: 0.7rem 1.2rem;
-        font-size: 1rem;
-    }
+@media (max-width: 600px) {
+  .controls { flex-direction: column; }
+  header { flex-direction: column; gap: 1rem; }
+  .lotto-game {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+  .lotto-numbers { justify-content: center; }
+  .lotto-number { width: 40px; height: 40px; font-size: 1rem; }
 }
