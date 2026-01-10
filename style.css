@@ -180,7 +180,7 @@ body:not(.dark-mode) .lotto-game {
 
 .lotto-numbers {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap; /* Changed from nowrap to wrap */
     justify-content: center;
     gap: 1rem;
     width: 100%;
@@ -202,4 +202,39 @@ body:not(.dark-mode) .lotto-game {
 
 .lotto-number:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 599px) {
+    .lotto-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .lotto-numbers {
+        gap: 0.5rem;
+    }
+
+    .game-label {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .lotto-game {
+        padding: 0.8rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
 }
